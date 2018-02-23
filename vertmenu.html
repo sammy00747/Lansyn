@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		.writeUp {
+			font-family:verdana;
+			text-align:center;
+			line-height:300%;
+			color:#ccc;
+			position:relative;
+		}
+		.menuItem {
+			height:50px;
+			background-color:#333;
+		}
+		.writeUp:hover {
+			color:white;
+		}
+		.subMenu1, .subMenu2 {
+			width:100%;
+			height:50px;
+			overflow:hidden;
+			transition:height 1s ease-out;
+		}
+		.subMenu1:hover{
+			height:150px;
+		}
+		.subMenu2:hover{
+			height:250px;
+		}
+		.submenuItem {
+			border-left:3px solid #0f0;
+			width:calc(100vw-3px);
+			height:50px;
+			background-color:black;
+		}
+		</style>
+	</head>
+	<body style="margin:0px;padding:0px;height:100vh;font-size:1em;">
+		<div style="width:12vw;height:100vh;background-color:#111;">
+			<div style="width:100%;height:200px;"></div>
+			<div class="submenu menuItem writeUp">Home</div>
+			<div class="subMenu1">
+				<div class="menuItem writeUp">About Us</div>
+				<div class="submenuItem writeUp">About Company</div>
+				<div class="submenuItem writeUp">About Team</div>
+			</div>
+			<div class="subMenu2">
+				<div class="menuItem writeUp">Contact</div>
+				<div class="submenuItem writeUp">Facebook</div>
+				<div class="submenuItem writeUp">Twitter</div>
+				<div class="submenuItem writeUp">Instagram</div>
+				<div class="submenuItem writeUp">GitHub</div>
+			</div>
+		</div>
+	</body>
+</html>
