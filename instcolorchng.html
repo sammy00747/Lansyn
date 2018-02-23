@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<body>
+		<div ng-app="">
+			<ul style="list-style-type:none">
+				<li style="float:left;"><input ng-model="Cred" type="range" min="0" max="255" /><p style="text-align:center;">  Red: {{Cred}}  </p></li>
+				<li style="float:left;"><input ng-model="Cgreen" type="range" min="0" max="255" /><p style="text-align:center;">  Green: {{Cgreen}} </p></li>
+				<li style="float:left;"><input ng-model="Cblue" type="range" min="0" max="255" /><p style="text-align:center;">  Blue: {{Cblue}} </p></li>
+			</ul>
+			<br /><br /><br /><br />
+			<div style="width:1200px;height:500px;background-color:rgb({{Cred}},{{Cgreen}},{{Cblue}});"></div>
+		</div>
+	</body>
+</html>
