@@ -3,39 +3,43 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<style>
-	.menuitem {
-		font-family:verdana;
-		color:#ffffff;
-		line-height:300%;
-		text-align:center;
-		width:25%;
-		height:100%;
-		float:left;
+<script>
+	var img = ['<img src="https://i.pinimg.com/736x/d7/60/fb/d760fbc1a6bf51234fd2fa5365f0ec81--messi-leo-lionel-messi.jpg" style="width:22.5vw;height:45vh;float:left;" />','<img src="http://realestatecoulisse.com/wp-content/uploads/2015/11/image1-300x300.jpg" style="width:22.5vw;height:45vh;float:left;" />','<img src="https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2013/12/17/11/reus.jpg" style="width:22.5vw;height:45vh;float:left;" />','<img src="http://jamaica-gleaner.com/sites/default/files/styles/jg_article_image/public/article_images/2014/07/08/neymarjuly3.jpg?itok=0RQKuokt" style="width:22.5vw;height:45vh;float:left;" />','<img src="https://d13csqd2kn0ewr.cloudfront.net/uploads/image/file/239510/cropped_2017-04-11T202715Z_134944035_MT1ACI14777062_RTRMADP_3_SOCCER-CHAMPIONS-JUV-FCB.jpg?ts=1491945314" style="width:22.5vw;height:45vh;float:left;" />'];
+	function slideRight() {
+		var temp=img[4];
+		img[4]=img[3];
+		img[3]=img[2];
+		img[2]=img[1];
+		img[1]=img[0];
+		img[0]=temp;
+		show();
 	}
-	.menuite:hover {
-		background-color:#009c00;
+	function slideLeft() {
+		var temp=img[0];
+		img[0]=img[1];
+		img[1]=img[2];
+		img[2]=img[3];
+		img[3]=img[4];
+		img[4]=temp;
+		show();
 	}
-	.menuitem:hover .submenuitem {
-		display:block;
+	function show(){
+		document.getElementById("face").innerHTML = img[0]+img[1]+img[2]+img[3]+img[4];
 	}
-	.submenuitem {
-		background-color:#000;
-		color:#fff;
-		display:none;
-		text-align:center;
-	}
-</style>
+</script>
 </head>
 
-<body style="margin:0px;padding:0px;">
-<div style="background-color:#007600;width:1005;height:50px;">
-	<div class="menuitem">Home</div>
-    <div class="menuitem">About</div>
-    <div class="menuitem">Services</div>
-    <div class="menuitem">Contact
-    	<a href="https://www.w3schools.com" style="text-decoration:none;"><div class="submenuitem">W3Schools</div></a>
-    </div>
+<body style="margin:0px;padding:0px;overflow:hidden;" onload="show()">
+<div id="face" style="background-color:#007600;width:112.5vw;height:45vh;margin-top:30vh;position:relative;">
+	
 </div>
+<button type="button" onclick="slideLeft()" style="width:3vw;height:6vh;background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_e4BQ32ks3MeRxtpgSu_GAdtqToFmiPAMATUJ9f_UtkuMpdNI');background-size:contain;float:left;"></button>
+<button type="button" onclick="slideRight()" style="width:3vw;height:6vh;background-image:url('https://n6-img-fp.akamaized.net/free-icon/right-arrows-in-square-button-outline_318-76347.jpg?size=338&ext=jpg');background-size:contain;float:right;"></button>
 </body>
 </html>
+
+<!-- https://i.pinimg.com/736x/d7/60/fb/d760fbc1a6bf51234fd2fa5365f0ec81--messi-leo-lionel-messi.jpg
+http://realestatecoulisse.com/wp-content/uploads/2015/11/image1-300x300.jpg
+https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2013/12/17/11/reus.jpg
+http://jamaica-gleaner.com/sites/default/files/styles/jg_article_image/public/article_images/2014/07/08/neymarjuly3.jpg?itok=0RQKuokt
+https://d13csqd2kn0ewr.cloudfront.net/uploads/image/file/239510/cropped_2017-04-11T202715Z_134944035_MT1ACI14777062_RTRMADP_3_SOCCER-CHAMPIONS-JUV-FCB.jpg?ts=1491945314 -->

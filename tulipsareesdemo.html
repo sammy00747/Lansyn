@@ -1,45 +1,260 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var Img=['<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a6b80685a0ff4fce6fd8d57-2048x2048.jpg" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a4a85fd70d5c0ecb9e9eb74-2048x2048.jpg" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a4544c482b387eed223d4e7-2048x2048.jpg" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/59942b1f62aa868b49441898-2048x2048.jpg" />'];
+		var Loop = setInterval(slideRight,3000);
+		$(window).focus(function (){
+			if(!Loop)
+				Loop = setInterval(slideRight,3000);
+		});
+		$(window).blur(function (){
+			clearInterval(Loop);
+			Loop = 0;
+		});
+		function slideLeft() {
+			var pos = 0;
+			var Time = setInterval(Slide,10);
+			function Slide() {
+				if(pos == -100) {
+					clearInterval(Time);
+				}
+				else {
+					pos--;
+					document.getElementById("face").style.left = pos+'vw';
+				}
+			}
+            document.getElementById("face").style.left = "100vw";
+			show();
+			var temp=Img[0];
+            Img[0]=Img[1];
+            Img[1]=Img[2];
+            Img[2]=Img[3];
+            Img[3]=temp;
+			clearInterval(Loop);
+			Loop = setInterval(slideRight,3000);
+		}
+        function slideRight() {
+            var temp=Img[3];
+            Img[3]=Img[2];
+            Img[2]=Img[1];
+            Img[1]=Img[0];
+            Img[0]=temp;
+            show();
+			document.getElementById("face").style.left = "-100vw";
+			var pos = -100;
+			var Time = setInterval(Slide,10);
+			function Slide() {
+				if(pos==0) {
+					clearInterval(Time);
+				}
+				else {
+					pos++;
+					document.getElementById("face").style.left = pos+'vw';
+				}
+			}
+			clearInterval(Loop);
+			Loop = setInterval(slideRight,3000);
+        }
+        function show() {
+            document.getElementById("face").innerHTML=Img[0]+Img[1]+Img[2]+Img[3];
+        }
+    </script>
 	<style>
+        /*styling the scrollbar*/
+        ::-webkit-scrollbar {
+            width:0.35vw;
+        }
+        ::-webkit-scrollbar-track {
+            background:#faa; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background:#f44; 
+        }
+        ::-webkit-scrollbar-thumb:active {
+            background:#f00;
+        }
+        /*styling scrollbar ends*/
 		ul li {
+            font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 			float:right;
 			font-size:2.5vh;
 			margin-right:3vh;
 		}
+        #face img {
+            width:100vw;
+            height:50vh;
+            float:left;
+        }
+        .gImage {
+            width:84vw;
+            height:54vh;
+            margin-left:8vw;
+        }
+        div, img {
+            width:inherit;
+            height:inherit;
+        }
+        .gImage img {
+            width:26vw;
+            height:51vh;
+            margin:0vh 1vw 3vh 1vw;
+            float:left;
+        }
+		.groupSarees {
+			width:82vw;
+			height:6vh;
+			background-color:black;
+			margin-left:9vw;
+			line-height:3vw;
+		}
+		.groupSarees pre {
+			color:white;
+			font-size:1.1vw;
+			font-family:verdana;
+		}
+		.about {
+			padding-left:3vw;
+			width:22vw;
+			height:35vh;
+			float:left;
+		}
+		.about h3, .about p {
+			color:white;
+			font-family:verdana;
+		}
+		.about p.Addr {
+			line-height:4vh;
+		}
+		.Payment {
+			height:30.8vh;
+		}
+		.Payment img {
+			float:left;
+		}
+        .Footer {
+            width:25vw;
+            color:white;
+            float:left;
+            text-align:center;
+            line-height:7.5vh;
+        }
     </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 </head>
 
-<body style="margin:0px;padding:0px;font-family:verdana;">
+<body style="margin:0px;padding:0px;" onload="show()">
 	<div style="width:100vw;height:4vh;background-color:#d9dede;">
-    	<ul style="margin:0px;padding:0px;list-style-type:none">
+    	<ul style="margin:0px;padding:0px;list-style-type:none;">
         	<li>Wishlist</li>
             <li>Register</li>
             <li>Login</li>
         </ul>
     </div>
     <div style="width:100vw;height:18vh;background-color:#fff;">
-    	<img src="https://pbs.twimg.com/profile_images/879755771143008256/4c6g1JpR_400x400.jpg" style="width:18vh;height:18vh;margin-left:45.5vw;" />
+    	<div style="width:55vw;float:left;"><img src="https://pbs.twimg.com/profile_images/879755771143008256/4c6g1JpR_400x400.jpg" style="width:18vh;height:18vh;float:right;" alt="Tulipsarees.com"/></div>
+        <div style="width:16.5vw;height:11vh;float:right;padding-top:7vh;padding-left:3.5vw;">
+        	<form action="#" method="get" style="width:14.2vw;height:3.4vh;" name="form1">
+                <input type="search" placeholder="Ask for a boon.." style="height:3.4vh;width:12vw;float:left;margin-right:0.2vw;"/>
+                <button type="submit" form="form1" style="height:3.4vh;width:1.7vw;border:none;outline:none;font-size:1.9vh;float:left;"><i class="fa fa-search"></i></button>
+            </form>
+            </div>
+        </div>
     </div>
     <div style="width:100vw;height:7vh;background-color:#000;"></div>
-    <div style="width:100vw;height:50vh;background-color:#888;margin-bottom:0;"></div>
-    <div style="text-align:center;color:#999;width:100vw;height:10vh;line-height:10vh;font-size:3vh">Welcome to our online store - Tulip Sarees!</div>
-    <div style="width:100vw;height:7vh;">
-    	<div style="width:41vw;float:left;">
-            <div style="height:3.4vh;"></div>
-            <div style="height:0.2vh;width:39.5vw;background-color:#888;"></div>
-            <div style="height:3.4vh;"></div>
+    <div style="width:400vw;height:50vh;">
+        <div style="width:400vw;overflow-x:auto;position:absolute;" id="face"></div>
+        <div style="width:100vw;position:absolute;z-index:1;">
+            <button type="button" style="width:4vw;height:8vh;margin-top:21vh;font-size:6vh;text-align:center;opacity:0.3;float:left;" onclick="slideLeft()"><i class="fa fa-angle-left"></i></button>
+            <button type="button" style="width:4vw;height:8vh;margin-top:21vh;font-size:6vh;text-align:center;opacity:0.3;float:right;" onclick="slideRight()"><i class="fa fa-angle-right"></i></button>
         </div>
-        <div style="width:18vw;float:left;background-color:white;text-align:center;font-size:1.5vw;">
-        	<div style="border:0.2vh solid #888;padding:1.6vh 0vh;color:#888;">SHOP BY CATEGORY</div>
+    </div>
+    <div style="text-align:center;color:#999;width:100vw;height:10vh;line-height:10vh;font-size:3vh;font-family:verdana;">Welcome to our online store - Tulip Sarees!</div>
+    <div style="width:100vw;height:7vh;margin-bottom:8vh;">
+        <div style="width:39.5vw;height:0.2vh;background-color:#888;float:left;margin-right:1.5vw;margin-top:3.4vh;"></div>
+        <div style="width:18vw;background-color:#888;float:left;font-family:verdana;">
+            <div style="width:17.8vw;height:6.6vh;margin-top:0.2vh;margin-left:0.1vw;background-color:white;text-align:center;font-size:1.6vw;line-height:3vw;color:#888;">SHOP BY CATEGORY</div>
         </div>
-        <div style="width:41vw;float:left;">
-            <div style="height:3.4vh;"></div>
-            <div style="height:0.2vh;width:39.5vw;background-color:#888;float:right;"></div>
-            <div style="height:3.4vh;"></div>
+        <div style="width:39.5vw;height:0.2vh;background-color:#888;float:right;margin-top:3.4vh;"></div>
+    </div>
+    <div class="gImage">
+        <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/5a60e30e86e40feaae5e2440-480x480.png" />
+        <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/5a60e3919d68fc17721a6037-480x480.png" />
+        <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/5a60e3919d68fc17721a6037-480x480.png" />
+    </div>
+    <div class="gImage">
+        <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/5a60e432956a0e177c64190d-480x480.png" />
+        <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/5a60e47844c7eb2d86395cba-480x480.png" />
+        <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/5a60e4e744c7eb2d86395dbe-480x480.png" />
+    </div>
+    <div class="gImage" style="margin-bottom:3vh;">
+        <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/5a60e55544c7eb2d86395e61-480x480.png" />
+        <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/5a60e5a8956a0e177c641bda-480x480.png" />
+        <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/5a60e5f0a4f7112da58fb19d-480x480.png" />
+    </div>
+    <div class="groupSarees"><pre>  NEW ARRIVALS</pre></div>
+    <div style="width:81.8vw;height:49.6vh;margin-left:9vw;margin-bottom:5vh;border:0.2vh solid #888;"></div>
+    <div class="groupSarees"><pre>  MOST POPULAR</pre></div>
+    <div style="width:81.8vw;height:49.6vh;margin-left:9vw;margin-bottom:5vh;border:0.2vh solid #888;"></div>
+    <div class="groupSarees"><pre>  SPECIAL COLLECTION</pre></div>
+    <div style="width:81.8vw;height:49.6vh;margin-left:9vw;margin-bottom:5vh;border:0.2vh solid #888;"></div>
+    <div style="width:50vw;height:27vh;margin:0vh 0vw 2vh 25vw;">
+        <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/598ca38bcf37b2cd580e3699-2048x2048.jpg" />
+    </div>
+    <div style="width:100vw;height:70vh;background-color:black;margin-bottom:0.2vh;">
+    	<div class="about">
+        	<h3>CONTACT</h3>
+            <p>9748495011</p>
+            <p>wecare@tulipsarees.com</p>
         </div>
+        <div class="about">
+        	<h3>INFORMATION</h3>
+            <p>About Us</p>
+            <p>Contact Us</p>
+        </div>
+        <div class="about">
+        	<h3>POLICIES</h3>
+            <p>Shopping</p>
+            <p>Return</p>
+            <p>Payment Methods</p>
+        </div>
+        <div class="about">
+        	<h3>ACCOUNT</h3>
+            <p>My Account</p>
+            <p>Wishlist</p>
+        </div>
+        <div class="about">
+        	<h3>ADDRESS</h3>
+            <p class="Addr">Tulip Sarees<br />
+               Garia<br />
+               Kolkata<br />
+               West Bengal<br />
+               IN
+            </p>
+        </div>
+    </div>
+    <div style="width:100vw;height:54vh;background-color:black;margin-bottom:0.2vh;">
+    	<div class="Payment">
+        	<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/597a4d54aaf5a17a6c5715d5-640x640.png" style="width:20vw;height:17vh;margin-left:8vw;margin-top:6.9vh;" />
+            <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/59761bb19cea36816cb896df-640x640.png" style="width:20vw;height:15vh;margin-left:10vw;margin-top:7.9vh;" />
+            <img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.banners/5a415cd89adc0027c5ef1d03-640x640.png" style="width:25vw;height:19vh;margin-left:9vw;margin-top:5.9vh;" />
+        </div>
+        <div style="width:88vw;height:0.2vh;margin-left:6vw;background-color:white;"></div>
+        <div style="height:8vh;margin-top:3vh;text-align:center;font-size:3.5vh;color:white;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;line-height:8vh;">Follow us on social media for more updates!</div>
+        <div style="height:6vh;margin-bottom:7vh;">
+        	<img src="http://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19751.png" style="width:4vw;height:6vh;margin-left:42.5vw;" />
+            <img src="http://moziru.com/images/original-clipart-transparent-9.png" style="width:3vw;height:6vh;margin-left:1vw;" />
+            <img src="https://vignette.wikia.nocookie.net/spongebob/images/8/87/Instagram-Logo-PNG-Transparent-Background-download.png/revision/latest?cb=20171028143502" style="width:3vw;height:6vh;margin-left:1vw;" />
+            <img src="http://sguru.org/wp-content/uploads/2018/02/Media-youtube-icon.png" style="width:3vw;height:6vh;margin-left:1vw;" />
+        </div>
+    </div>
+    <div style="height:8vh;background-color:black;font-family:verdana;">
+        <div class="Footer">Copyright &#169; Tulip Sarees v4.0</div>
+        <div class="Footer" style="float:right;">Powered by Lansyn</div>
     </div>
 </body>
 </html>
