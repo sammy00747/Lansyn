@@ -3,7 +3,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<<<<<<< HEAD
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         var Img=['<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a6b80685a0ff4fce6fd8d57-2048x2048.jpg" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a4a85fd70d5c0ecb9e9eb74-2048x2048.jpg" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a4544c482b387eed223d4e7-2048x2048.jpg" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/59942b1f62aa868b49441898-2048x2048.jpg" />'];
@@ -31,28 +30,13 @@
             document.getElementById("face").style.left = "100vw";
 			show();
 			var temp=Img[0];
-=======
-    <script>
-        var Img=['<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a4a85fd70d5c0ecb9e9eb74-2048x2048.jpg" style="position:absolute;background-size:contain;width:100vw;float:left;" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a4544c482b387eed223d4e7-2048x2048.jpg" style="position:absolute;background-size:contain;width:100vw;float:left;" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/59942b1f62aa868b49441898-2048x2048.jpg" style="position:absolute;background-size:contain;width:100vw;float:left;" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a6b80685a0ff4fce6fd8d57-2048x2048.jpg" style="position:absolute;background-size:contain;width:100vw;float:left;" />'], t;
-        function init0() {
-            t=document.getElementById("face").innerHTML;
-            document.getElementById("face").innerHTML=Img[0]+Img[1]+Img[2]+Img[3]+t;
-        }
-        function slideLeft() {
-            var temp=Img[0];
->>>>>>> 91e7e0f6bbf8d7cb067e271f864d1b9fefaa87f0
             Img[0]=Img[1];
             Img[1]=Img[2];
             Img[2]=Img[3];
             Img[3]=temp;
-<<<<<<< HEAD
 			clearInterval(Loop);
 			Loop = setInterval(slideRight,3000);
 		}
-=======
-            show();
-        }
->>>>>>> 91e7e0f6bbf8d7cb067e271f864d1b9fefaa87f0
         function slideRight() {
             var temp=Img[3];
             Img[3]=Img[2];
@@ -60,7 +44,6 @@
             Img[1]=Img[0];
             Img[0]=temp;
             show();
-<<<<<<< HEAD
 			document.getElementById("face").style.left = "-100vw";
 			var pos = -100;
 			var Time = setInterval(Slide,10);
@@ -78,11 +61,6 @@
         }
         function show() {
             document.getElementById("face").innerHTML=Img[0]+Img[1]+Img[2]+Img[3];
-=======
-        }
-        function show() {
-            document.getElementById("face").innerHTML=Img[0]+Img[1]+Img[2]+Img[3]+t;
->>>>>>> 91e7e0f6bbf8d7cb067e271f864d1b9fefaa87f0
         }
     </script>
 	<style>
@@ -106,14 +84,11 @@
 			font-size:2.5vh;
 			margin-right:3vh;
 		}
-<<<<<<< HEAD
         #face img {
             width:100vw;
             height:50vh;
             float:left;
         }
-=======
->>>>>>> 91e7e0f6bbf8d7cb067e271f864d1b9fefaa87f0
         .gImage {
             width:84vw;
             height:54vh;
@@ -172,11 +147,7 @@
 <title>Untitled Document</title>
 </head>
 
-<<<<<<< HEAD
 <body style="margin:0px;padding:0px;" onload="show()">
-=======
-<body style="margin:0px;padding:0px;overflow-x:hidden;" onload="init0()">
->>>>>>> 91e7e0f6bbf8d7cb067e271f864d1b9fefaa87f0
 	<div style="width:100vw;height:4vh;background-color:#d9dede;">
     	<ul style="margin:0px;padding:0px;list-style-type:none;">
         	<li>Wishlist</li>
@@ -187,7 +158,6 @@
     <div style="width:100vw;height:18vh;background-color:#fff;">
     	<div style="width:55vw;float:left;"><img src="https://pbs.twimg.com/profile_images/879755771143008256/4c6g1JpR_400x400.jpg" style="width:18vh;height:18vh;float:right;" alt="Tulipsarees.com"/></div>
         <div style="width:16.5vw;height:11vh;float:right;padding-top:7vh;padding-left:3.5vw;">
-<<<<<<< HEAD
         	<form action="#" method="get" style="width:14.2vw;height:3.4vh;" name="form1">
                 <input type="search" placeholder="Ask for a boon.." style="height:3.4vh;width:12vw;float:left;margin-right:0.2vw;"/>
                 <button type="submit" form="form1" style="height:3.4vh;width:1.7vw;border:none;outline:none;font-size:1.9vh;float:left;"><i class="fa fa-search"></i></button>
@@ -202,18 +172,6 @@
             <button type="button" style="width:4vw;height:8vh;margin-top:21vh;font-size:6vh;text-align:center;opacity:0.3;float:left;" onclick="slideLeft()"><i class="fa fa-angle-left"></i></button>
             <button type="button" style="width:4vw;height:8vh;margin-top:21vh;font-size:6vh;text-align:center;opacity:0.3;float:right;" onclick="slideRight()"><i class="fa fa-angle-right"></i></button>
         </div>
-=======
-            <form action="#" method="get">
-                <input type="search" placeholder="Ask for a boon.." style="height:3.4vh;"/>
-                <input type="submit" value=" " style="height:3.4vh;width:1.7vw;border:none;outline:none;background-image:url('http://cdn.mysitemyway.com/icons-watermarks/flat-square-white-on-red/bfa/bfa_search/bfa_search_flat-square-white-on-red_32x32.png');background-size:contain;" />
-            </form>
-        </div>
-    </div>
-    <div style="width:100vw;height:7vh;background-color:#000;"></div>
-    <div style="width:500vw;height:50vh;background-color:#888;margin-bottom:0;" id="face">
-        <button type="button" style="width:4vw;height:8vh;margin-top:21vh;font-size:6vh;text-align:center;opacity:0.5;position:absolute;" onclick="slideLeft()"><i class="fa fa-angle-left"></i></button>
-        <button type="button" style="width:4vw;height:8vh;margin-top:21vh;font-size:6vh;text-align:center;opacity:0.5;position:absolute;margin-left:95vw;" onclick="slideRight()"><i class="fa fa-angle-right"></i></button>
->>>>>>> 91e7e0f6bbf8d7cb067e271f864d1b9fefaa87f0
     </div>
     <div style="text-align:center;color:#999;width:100vw;height:10vh;line-height:10vh;font-size:3vh;font-family:verdana;">Welcome to our online store - Tulip Sarees!</div>
     <div style="width:100vw;height:7vh;margin-bottom:8vh;">
