@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
         var Img=['<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a6b80685a0ff4fce6fd8d57-2048x2048.jpg" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a4a85fd70d5c0ecb9e9eb74-2048x2048.jpg" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/5a4544c482b387eed223d4e7-2048x2048.jpg" />','<img src="https://cdn.storehippo.com/s/58d2076fd4d5865e495c9686/ms.slides/59942b1f62aa868b49441898-2048x2048.jpg" />'];
 		var Loop = setInterval(slideRight,3000);
@@ -62,6 +63,17 @@
         function show() {
             document.getElementById("face").innerHTML=Img[0]+Img[1]+Img[2]+Img[3];
         }
+        $(document).ready(function(){
+            $("body").click(function(e){
+                var target1 = e.target;
+                var cont = $("#topMenu");
+                if(target1.id == "topMenuButton" || (target1.parent().id == "topMenu" && target1.nodeName == "li")) {
+                    cont.animate({left: '89.4vw', opacity: 1},{duration: 1000,queue: false}).clearQueue().delay(1100).animate({height: '12vh'}).delay(2000);
+                    cont.animate({height: '4vh'}).delay(200);
+                    cont.animate({left: '98vw', opacity: 0},{duration: 1000});
+                }
+            });
+        });
     </script>
 	<style>
         /*styling the scrollbar*/
@@ -80,10 +92,13 @@
         /*styling scrollbar ends*/
 		ul li {
             font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-			float:right;
-			font-size:2.5vh;
-			margin-right:3vh;
-		}
+            width:6vw;
+            height:4vh;
+            background-color:red;
+            color:white;
+            text-align:center;
+            line-height:4vh;
+        }
         #face img {
             width:100vw;
             height:50vh;
@@ -147,12 +162,13 @@
 <title>Untitled Document</title>
 </head>
 
-<body style="margin:0px;padding:0px;" onload="show()">
+<body style="margin:0px;padding:0px;overflow-x:hidden;" onload="show()">
 	<div style="width:100vw;height:4vh;background-color:#d9dede;">
-    	<ul style="margin:0px;padding:0px;list-style-type:none;">
-        	<li>Wishlist</li>
-            <li>Register</li>
+    	<div id="topMenuButton" style="width:2vw;left:98vw;position:absolute;background-color:red;color:white;background-size:contain;font-size:3vh;text-align:center;z-index:1;"><i class="fa fa-list-ul" id="topMenuButton" style="margin-top:0.5vh;"></i></div>
+        <ul id="topMenu" style="list-style-type:none;left:98vw;position:absolute;height:4vh;opacity:0;overflow:hidden;top:-2.1vh;">
             <li>Login</li>
+            <li>Register</li>
+            <li>Wishlist</li>
         </ul>
     </div>
     <div style="width:100vw;height:18vh;background-color:#fff;">
